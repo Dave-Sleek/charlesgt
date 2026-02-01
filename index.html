@@ -775,10 +775,15 @@
             </div>
             
             <div style="text-align: center; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); color: #aaa; font-size: 14px;">
-                <p>&copy; 2023 SparkleClean Laundry Services. All rights reserved.</p>
+                <p>&copy; <span id="year"></span> CharlesGT Laundry Services. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <script>
+    // Display current year automatically
+    document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
     
     <script>
         // Mobile menu toggle
