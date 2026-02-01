@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CharlesGT Laundry Services | Professional Laundry & Dry Cleaning</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #2a9d8f;
+            --primary-dark: #21867a;
+            --secondary: #264653;
+            --accent: #e9c46a;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --dark: #343a40;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f5f7fa;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Refined Header & Navigation */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        header.scrolled {
+            padding: 5px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 22px;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover .logo-icon {
+            transform: rotate(-10deg) scale(1.1);
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text h1 {
+            font-size: 26px;
+            color: var(--secondary);
+            line-height: 1;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo-text span {
+            color: var(--primary);
+            font-weight: 800;
+        }
+        
+        .logo-text p {
+            font-size: 12px;
+            color: var(--gray);
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 600;
+            padding: 10px 18px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+        }
+        
+        .nav-link i {
+            font-size: 14px;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+            background-color: rgba(42, 157, 143, 0.08);
+        }
+        
+        .nav-link:hover i {
+            transform: translateY(-2px);
+        }
+        
+        .nav-link.active {
+            color: var(--primary);
+            background-color: rgba(42, 157, 143, 0.1);
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 18px;
+            right: 18px;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 3px;
+        }
+        
+        .whatsapp-nav-btn {
+            background-color: #25D366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+        }
+        
+        .whatsapp-nav-btn:hover {
+            background-color: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);
+        }
+        
+        .whatsapp-nav-btn i {
+            font-size: 18px;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            background-color: rgba(42, 157, 143, 0.1);
+            border: none;
+            cursor: pointer;
+            color: var(--primary);
+            font-size: 22px;
+            transition: all 0.3s ease;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .mobile-menu-btn:hover {
+            background-color: rgba(42, 157, 143, 0.2);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            flex-direction: column;
+            gap: 5px;
+            z-index: 999;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            max-height: calc(100vh - 80px);
+            overflow-y: auto;
+        }
+        
+        .mobile-menu.active {
+            display: flex;
+        }
+        
+        .mobile-nav-link {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 600;
+            padding: 16px 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+        }
+        
+        .mobile-nav-link:hover,
+        .mobile-nav-link.active {
+            color: var(--primary);
+            background-color: rgba(42, 157, 143, 0.1);
+        }
+        
+        .mobile-nav-link i {
+            width: 20px;
+            text-align: center;
+        }
+        
+        .mobile-whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+            padding: 16px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+            justify-content: center;
+        }
+        
+        .mobile-whatsapp-btn:hover {
+            background-color: #128C7E;
+        }
+        
+        /* The rest of your CSS remains the same, just add this after the navbar styles */
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(42, 157, 143, 0.85), rgba(38, 70, 83, 0.9)), url('https://images.unsplash.com/photo-1600585154340-843b7c139e62?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--secondary);
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #f2b52e;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        /* Add indicator for active section */
+        .section-indicator {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 99;
+        }
+        
+        .indicator-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(42, 157, 143, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .indicator-dot.active {
+            background-color: var(--primary);
+            transform: scale(1.3);
+        }
+        
+        .indicator-dot:hover::after {
+            content: attr(data-section);
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--secondary);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1100px) {
+            .nav-link {
+                padding: 10px 14px;
+                font-size: 14px;
+            }
+            
+            .whatsapp-nav-btn {
+                padding: 10px 16px;
+                font-size: 14px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .nav-links,
+            .whatsapp-nav-btn {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            .hero h2 {
+                font-size: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .logo-text h1 {
+                font-size: 22px;
+            }
+            
+            .logo-text p {
+                font-size: 10px;
+            }
+            
+            .hero {
+                padding: 80px 0;
+            }
+            
+            .hero h2 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .section-indicator {
+                display: none;
+            }
+        }
+        
+        /* For demonstration - you can remove this in actual implementation */
+        .demo-note {
+            background-color: var(--accent);
+            color: var(--secondary);
+            padding: 10px;
+            text-align: center;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- Demo Note -->
+    <!-- <div class="demo-note">
+        Navbar Refined: Added WhatsApp button, active states, hover effects, and mobile optimization
+    </div> -->
+    
+    <!-- Refined Header & Navigation -->
+    <header id="mainHeader">
+        <div class="container">
+            <nav>
+                <a href="#home" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-soap"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Charles<span>GT</span></h1>
+                        <p>LAUNDRY SERVICES</p>
+                    </div>
+                </a>
+                
+                <div class="nav-links">
+                    <a href="#home" class="nav-link active" data-section="home">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    <a href="#services" class="nav-link" data-section="services">
+                        <i class="fas fa-concierge-bell"></i>
+                        <span>Services</span>
+                    </a>
+                    <a href="#pricing" class="nav-link" data-section="pricing">
+                        <i class="fas fa-tags"></i>
+                        <span>Pricing</span>
+                    </a>
+                    <a href="#booking" class="nav-link" data-section="booking">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Booking</span>
+                    </a>
+                    <a href="#contact" class="nav-link" data-section="contact">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>Contact</span>
+                    </a>
+                    <a href="https://wa.me/2348060292694?text=Hello%20CharlesGT%21%20I%27d%20like%20to%20book%20a%20laundry%20service%20or%20get%20more%20information%20about%20your%20services." class="whatsapp-nav-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Chat Now</span>
+                    </a>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+            
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="#home" class="mobile-nav-link active">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="#services" class="mobile-nav-link">
+                    <i class="fas fa-concierge-bell"></i>
+                    <span>Services</span>
+                </a>
+                <a href="#pricing" class="mobile-nav-link">
+                    <i class="fas fa-tags"></i>
+                    <span>Pricing</span>
+                </a>
+                <a href="#booking" class="mobile-nav-link">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Booking</span>
+                </a>
+                <a href="#contact" class="mobile-nav-link">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>Contact</span>
+                </a>
+                <a href="https://wa.me/2348060292694?text=Hello%20CharlesGT%21%20I%27d%20like%20to%20book%20a%20laundry%20service%20or%20get%20more%20information%20about%20your%20services." class="mobile-whatsapp-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Chat on WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Section Indicator Dots -->
+    <div class="section-indicator">
+        <div class="indicator-dot active" data-section="Home" data-target="home"></div>
+        <div class="indicator-dot" data-section="Services" data-target="services"></div>
+        <div class="indicator-dot" data-section="Pricing" data-target="pricing"></div>
+        <div class="indicator-dot" data-section="Booking" data-target="booking"></div>
+        <div class="indicator-dot" data-section="Contact" data-target="contact"></div>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Professional Laundry Services Delivered to Your Doorstep</h2>
+            <p>We provide top-quality washing, dry cleaning, and ironing services with free pickup and delivery. Book online and get 20% off your first order!</p>
+            <!-- <a href="#booking" class="btn btn-primary">Book Service Now</a> -->
+              <!-- <a href="https://wa.me/2348060292694" style="display: inline-flex; align-items: center; gap: 10px; background-color: #25D366; color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: all 0.3s;" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp </a> -->
+            <a href="https://wa.me/2348060292694?text=Hello%20CharlesGT%21%20I%27d%20like%20to%20book%20a%20laundry%20service%20or%20get%20more%20information%20about%20your%20services." 
+                        style="display: inline-flex; align-items: center; gap: 10px; background-color: #25D366; color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: all 0.3s;" 
+                        target="_blank">
+                            <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                        </a>
+            
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services" style="padding: 80px 0;">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 36px; color: var(--secondary); margin-bottom: 40px;">Our Services</h2>
+            <p style="text-align: center; color: var(--gray); max-width: 700px; margin: 0 auto 50px;">Choose from our range of professional laundry and dry cleaning services tailored to meet your needs</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                <div style="background-color: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); padding: 30px; text-align: center;">
+                    <div style="width: 80px; height: 80px; background-color: rgba(42, 157, 143, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: var(--primary); font-size: 36px;">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3 style="font-size: 22px; color: var(--secondary); margin-bottom: 15px;">Wash & Fold</h3>
+                    <p style="color: var(--gray); margin-bottom: 20px;">Professional washing, drying, and folding of your everyday clothes. Perfect for regular laundry needs.</p>
+                    <p style="color: var(--primary); font-weight: 700; font-size: 20px;">From ₦2,500 per load</p>
+                </div>
+                
+                <div style="background-color: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); padding: 30px; text-align: center;">
+                    <div style="width: 80px; height: 80px; background-color: rgba(42, 157, 143, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: var(--primary); font-size: 36px;">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h3 style="font-size: 22px; color: var(--secondary); margin-bottom: 15px;">Dry Cleaning</h3>
+                    <p style="color: var(--gray); margin-bottom: 20px;">Expert dry cleaning for delicate fabrics, suits, dresses, and special occasion wear.</p>
+                    <p style="color: var(--primary); font-weight: 700; font-size: 20px;">From ₦1,500 per item</p>
+                </div>
+                
+                <div style="background-color: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); padding: 30px; text-align: center;">
+                    <div style="width: 80px; height: 80px; background-color: rgba(42, 157, 143, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: var(--primary); font-size: 36px;">
+                        <i class="fas fa-iron"></i>
+                    </div>
+                    <h3 style="font-size: 22px; color: var(--secondary); margin-bottom: 15px;">Ironing Service</h3>
+                    <p style="color: var(--gray); margin-bottom: 20px;">Professional ironing to give your clothes a crisp, fresh look. We handle all fabric types with care.</p>
+                    <p style="color: var(--primary); font-weight: 700; font-size: 20px;">From ₦800 per item</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pricing Section -->
+    <section id="pricing" style="padding: 80px 0; background-color: #f8f9fa;">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 36px; color: var(--secondary); margin-bottom: 40px;">Pricing Plans</h2>
+            <p style="text-align: center; color: var(--gray); max-width: 700px; margin: 0 auto 50px;">Transparent pricing with no hidden charges. Choose the plan that works best for you.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+                <div style="background-color: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); text-align: center; padding: 40px 30px; position: relative;">
+                    <h3 style="font-size: 24px; color: var(--secondary); margin-bottom: 20px;">Basic Wash</h3>
+                    <div style="font-size: 48px; color: var(--primary); font-weight: 700; margin-bottom: 20px;">₦2,500</div>
+                    <p style="color: var(--gray); margin-bottom: 30px;">Per standard load (up to 6kg)</p>
+                    <ul style="list-style: none; margin-bottom: 30px; text-align: left;">
+                        <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-check" style="color: var(--primary);"></i>
+                            <span>Wash, dry & fold</span>
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-check" style="color: var(--primary);"></i>
+                            <span>Eco-friendly detergents</span>
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-check" style="color: var(--primary);"></i>
+                            <span>Free pickup</span>
+                        </li>
+                    </ul>
+                    <a href="#booking" style="display: inline-block; background-color: var(--primary); color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">Book Now</a>
+                </div>
+                
+                <div style="background-color: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); text-align: center; padding: 40px 30px; position: relative; border: 2px solid var(--primary);">
+                    <div style="position: absolute; top: 0; right: 20px; background-color: var(--accent); color: var(--secondary); padding: 5px 15px; border-radius: 0 0 8px 8px; font-weight: 700; font-size: 14px;">POPULAR</div>
+                    <h3 style="font-size: 24px; color: var(--secondary); margin-bottom: 20px;">Premium Bundle</h3>
+                    <div style="font-size: 48px; color: var(--primary); font-weight: 700; margin-bottom: 20px;">₦4,500</div>
+                    <p style="color: var(--gray); margin-bottom: 30px;">Wash + Dry Cleaning combo</p>
+                    <ul style="list-style: none; margin-bottom: 30px; text-align: left;">
+                        <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-check" style="color: var(--primary);"></i>
+                            <span>Standard wash load</span>
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-check" style="color: var(--primary);"></i>
+                            <span>2 dry cleaning items</span>
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-check" style="color: var(--primary);"></i>
+                            <span>Free ironing (5 items)</span>
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-check" style="color: var(--primary);"></i>
+                            <span>Priority service</span>
+                        </li>
+                    </ul>
+                    <a href="#booking" style="display: inline-block; background-color: var(--primary); color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">Book Now</a>
+                </div>
+                
+                <div style="background-color: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); text-align: center; padding: 40px 30px; position: relative;">
+                    <h3 style="font-size: 24px; color: var(--secondary); margin-bottom: 20px;">Dry Cleaning</h3>
+                    <div style="font-size: 48px; color: var(--primary); font-weight: 700; margin-bottom: 20px;">₦1,500</div>
+                    <p style="color: var(--gray); margin-bottom: 30px;">Per delicate item</p>
+                    <ul style="list-style: none; margin-bottom: 30px; text-align: left;">
+                        <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-check" style="color: var(--primary);"></i>
+                            <span>Professional dry cleaning</span>
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-check" style="color: var(--primary);"></i>
+                            <span>Delicate fabric care</span>
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-check" style="color: var(--primary);"></i>
+                            <span>Stain removal</span>
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-check" style="color: var(--primary);"></i>
+                            <span>Professional folding/pressing</span>
+                        </li>
+                    </ul>
+                    <a href="#booking" style="display: inline-block; background-color: var(--primary); color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Booking Section -->
+    <section id="booking" style="padding: 80px 0;">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 36px; color: var(--secondary); margin-bottom: 20px;">Book Your Service</h2>
+            <p style="text-align: center; color: var(--gray); max-width: 700px; margin: 0 auto 50px;">Fill out the form below to schedule a pickup. We'll contact you to confirm details.</p>
+            
+            <div style="background-color: white; border-radius: 15px; padding: 40px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); max-width: 800px; margin: 0 auto;">
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <div style="width: 60px; height: 60px; background-color: rgba(42, 157, 143, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; color: var(--primary); font-size: 24px;">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 style="font-size: 24px; color: var(--secondary);">Schedule Your Laundry Pickup</h3>
+                </div>
+                
+                <form id="bookingForm" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div style="grid-column: 1 / -1; text-align: center;">
+                        <p style="color: var(--primary); font-weight: 600; margin-bottom: 20px;"><i class="fas fa-phone-alt"></i> Need immediate assistance? Call/WhatsApp: <strong>0806 029 2694</strong></p>
+                    </div>
+                    
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--secondary);">Full Name *</label>
+                        <input type="text" style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px;" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--secondary);">Phone Number *</label>
+                        <input type="tel" style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px;" placeholder="0806 029 2694" required>
+                    </div>
+                    
+                    <div style="grid-column: 1 / -1; text-align: center;">
+                        <button type="submit" disabled style="background-color: var(--primary); color: white; border: none; padding: 15px 40px; border-radius: 50px; font-size: 18px; font-weight: 600; cursor: pointer; transition: all 0.3s; display: inline-flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-paper-plane"></i> Coming Soon...
+                        </button>
+                        <p style="color: var(--gray); font-size: 14px; margin-top: 15px;">We'll contact you within 30 minutes to confirm</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" style="padding: 80px 0; background-color: var(--secondary); color: white;">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 36px; margin-bottom: 40px;">Contact Us</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: center;">
+                <div>
+                    <h3 style="font-size: 28px; margin-bottom: 20px;">Get In Touch</h3>
+                    <p style="margin-bottom: 30px; opacity: 0.9;">Have questions or need immediate assistance? Reach out to us via phone or WhatsApp.</p>
+                    
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <div style="background-color: rgba(255, 255, 255, 0.1); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px;">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 18px;">Call Us</h4>
+                            <p style="font-size: 20px; font-weight: 600;"><a style="color: var(--primary); font-weight: 700; font-size: 20px;" href="tel:08060292694">0806 029 2694</a></p>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 30px;">
+                        <div style="background-color: rgba(255, 255, 255, 0.1); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px;">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 18px;">Email Us</h4>
+                            <p><a href="mailto:belijah821@gmail.com" style="color: var(--primary); font-weight: 700; font-size: 20px;">belijah821@gmail.com</a></p>
+                        </div>
+                    </div>
+                    
+                    <!-- <a href="https://wa.me/2348060292694" style="display: inline-flex; align-items: center; gap: 10px; background-color: #25D366; color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: all 0.3s;" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                    </a> -->
+
+                    <a href="https://wa.me/2348060292694?text=Hello%20CharlesGT%21%20I%27d%20like%20to%20book%20a%20laundry%20service%20or%20get%20more%20information%20about%20your%20services." 
+                        style="display: inline-flex; align-items: center; gap: 10px; background-color: #25D366; color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: all 0.3s;" 
+                        target="_blank">
+                            <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                        </a>
+                </div>
+                
+                <div>
+                    <h3 style="font-size: 28px; margin-bottom: 20px;">Why Choose Us?</h3>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px;">
+                            <i class="fas fa-check-circle" style="color: var(--accent);"></i>
+                            <span>Free pickup and delivery within city limits</span>
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px;">
+                            <i class="fas fa-check-circle" style="color: var(--accent);"></i>
+                            <span>Eco-friendly detergents and processes</span>
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px;">
+                            <i class="fas fa-check-circle" style="color: var(--accent);"></i>
+                            <span>Same-day service available</span>
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px;">
+                            <i class="fas fa-check-circle" style="color: var(--accent);"></i>
+                            <span>Professional handling of delicate fabrics</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer style="background-color: var(--dark); color: white; padding: 50px 0 20px;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px;">
+                <div>
+                    <h3 style="font-size: 20px; margin-bottom: 20px; color: var(--accent);">CharlesGT</h3>
+                    <p>Professional laundry and dry cleaning services with free pickup and delivery. Making your life cleaner and easier.</p>
+                </div>
+                
+                <div>
+                    <h3 style="font-size: 20px; margin-bottom: 20px; color: var(--accent);">Contact Info</h3>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 10px;"><i class="fas fa-phone" style="margin-right: 10px;"></i> 0806 029 2694</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-envelope" style="margin-right: 10px;"></i> belijah821@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Cross River State, Nigeria</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="text-align: center; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); color: #aaa; font-size: 14px;">
+                <p>&copy; 2023 SparkleClean Laundry Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mobileMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                
+                // Update active state
+                document.querySelectorAll('.mobile-nav-link').forEach(item => {
+                    item.classList.remove('active');
+                });
+                link.classList.add('active');
+            });
+        });
+        
+        // Update active nav link based on scroll position
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        const indicatorDots = document.querySelectorAll('.indicator-dot');
+        
+        function updateActiveNav() {
+            let scrollY = window.pageYOffset;
+            
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 100;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    // Update desktop nav links
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                    
+                    // Update mobile nav links
+                    mobileNavLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                    
+                    // Update indicator dots
+                    indicatorDots.forEach(dot => {
+                        dot.classList.remove('active');
+                        if (dot.getAttribute('data-target') === sectionId) {
+                            dot.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', updateActiveNav);
+        
+        // Header scroll effect
+        const header = document.getElementById('mainHeader');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if(this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Indicator dots click event
+        indicatorDots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const targetElement = document.getElementById(targetId);
+                
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Form submission
+        const bookingForm = document.getElementById('bookingForm');
+        
+        bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you! Your booking request has been submitted. We will contact you shortly.');
+            bookingForm.reset();
+        });
+        
+        // Set today's date for booking form
+        window.addEventListener('DOMContentLoaded', () => {
+            const today = new Date().toISOString().split('T')[0];
+            const dateInputs = document.querySelectorAll('input[type="date"]');
+            dateInputs.forEach(input => {
+                input.setAttribute('min', today);
+            });
+        });
+    </script>
+</body>
+</html>
