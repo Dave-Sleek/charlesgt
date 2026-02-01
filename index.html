@@ -918,6 +918,381 @@
                 input.setAttribute('min', today);
             });
         });
+
+
+
+
+    // WhatsApp Booking System for Pricing Section
+document.addEventListener('DOMContentLoaded', function() {
+    // Add WhatsApp booking functionality to all "Book Now" buttons
+    setupWhatsAppBooking();
+});
+
+function setupWhatsAppBooking() {
+    // Get all pricing cards
+    const pricingCards = document.querySelectorAll('#pricing > .container > div > div');
+    
+    // Remove existing href from Book Now buttons and add click handlers
+    pricingCards.forEach((card, index) => {
+        // Get the "Book Now" link in this card
+        const bookButton = card.querySelector('a[href="#booking"]');
+        
+        if (bookButton) {
+            // Remove the href that scrolls to booking form
+            bookButton.removeAttribute('href');
+            
+            // Add click handler for WhatsApp booking
+            bookButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Get service details from the card
+                const serviceName = card.querySelector('h3').textContent;
+                const servicePrice = card.querySelector('div[style*="font-size: 48px"]').textContent;
+                const serviceDescription = card.querySelector('p').textContent;
+                
+                // Get features list
+                const features = [];
+                card.querySelectorAll('ul li span').forEach(feature => {
+                    features.push(feature.textContent);
+                });
+                
+                // Open WhatsApp with pre-filled message
+                openWhatsAppBooking(serviceName, servicePrice, serviceDescription, features);
+            });
+            
+            // Add WhatsApp icon to the button
+            bookButton.innerHTML = '<i class="fab fa-whatsapp"></i> Book on WhatsApp';
+            
+            // Update button styles for WhatsApp
+            bookButton.style.backgroundColor = '#25D366';
+            bookButton.style.display = 'inline-flex';
+            bookButton.style.alignItems = 'center';
+            bookButton.style.justifyContent = 'center';
+            bookButton.style.gap = '8px';
+            
+            // Add hover effect
+            bookButton.addEventListener('mouseenter', function() {
+                this.style.backgroundColor = '#128C7E';
+                this.style.transform = 'translateY(-3px)';
+                this.style.boxShadow = '0 5px 15px rgba(37, 211, 102, 0.3)';
+            });
+            
+            bookButton.addEventListener('mouseleave', function() {
+                this.style.backgroundColor = '#25D366';
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = 'none';
+            });
+        }
+    });
+}
+
+function openWhatsAppBooking(serviceName, servicePrice, serviceDescription, features) {
+    // WhatsApp phone number (replace with your actual number)
+    const whatsappNumber = '2348060292694';
+    
+    // Create the message based on service
+    let message = `Hello SparkleClean! \n\n`;
+    message += `I would like to book the *${serviceName}* service.\n\n`;
+    message += `*Service Details:*\n`;
+    message += `- Price: ${servicePrice}\n`;
+    message += `- Description: ${serviceDescription}\n\n`;
+    
+    if (features.length > 0) {
+        message += `*Included Features:*\n`;
+        features.forEach((feature, index) => {
+            if (index < 3) { // Show only first 3 features to keep message concise
+                message += `• ${feature}\n`;
+            }
+        });
+    }
+    
+    message += `\nPlease let me know:\n`;
+    message += `1. Available pickup times\n`;
+    message += `2. Any preparation needed\n`;
+    message += `3. Payment options\n\n`;
+    message += `Thank you!`;
+    
+    // Encode the message for URL
+    const encodedMessage = encodeURIComponent(message);
+    
+    // Create WhatsApp URL
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    
+    // Show confirmation modal before redirecting
+    showConfirmationModal(serviceName, servicePrice, whatsappURL);
+}
+
+function showConfirmationModal(serviceName, servicePrice, whatsappURL) {
+    // Create modal HTML
+    const modalHTML = `
+        <div id="whatsappConfirmModal" style="
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        ">
+            <div style="
+                background-color: white;
+                padding: 40px;
+                border-radius: 15px;
+                max-width: 500px;
+                width: 90%;
+                text-align: center;
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            ">
+                <div style="
+                    width: 80px;
+                    height: 80px;
+                    background-color: rgba(37, 211, 102, 0.1);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 auto 20px;
+                    color: #25D366;
+                    font-size: 40px;
+                ">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                
+                <h3 style="
+                    color: #264653;
+                    margin-bottom: 15px;
+                    font-size: 28px;
+                ">Continue to WhatsApp</h3>
+                
+                <p style="
+                    color: #6c757d;
+                    margin-bottom: 25px;
+                    line-height: 1.6;
+                ">
+                    You're booking <strong style="color: #2a9d8f;">${serviceName}</strong> 
+                    for <strong style="color: #2a9d8f;">${servicePrice}</strong>.
+                    <br><br>
+                    You'll be redirected to WhatsApp where a pre-filled message will be ready to send.
+                </p>
+                
+                <div style="
+                    display: flex;
+                    gap: 15px;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                ">
+                    <a href="${whatsappURL}" target="_blank" style="
+                        background-color: #25D366;
+                        color: white;
+                        padding: 12px 30px;
+                        border-radius: 8px;
+                        text-decoration: none;
+                        font-weight: 600;
+                        transition: all 0.3s;
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 10px;
+                        border: none;
+                        cursor: pointer;
+                        font-size: 16px;
+                    ">
+                        <i class="fab fa-whatsapp"></i> Open WhatsApp
+                    </a>
+                    
+                    <button onclick="closeWhatsAppModal()" style="
+                        background-color: #f8f9fa;
+                        color: #343a40;
+                        padding: 12px 30px;
+                        border-radius: 8px;
+                        text-decoration: none;
+                        font-weight: 600;
+                        transition: all 0.3s;
+                        border: 1px solid #ddd;
+                        cursor: pointer;
+                        font-size: 16px;
+                    ">
+                        Cancel
+                    </button>
+                </div>
+                
+                <p style="
+                    font-size: 14px;
+                    color: #6c757d;
+                    margin-top: 20px;
+                ">
+                    <i class="fas fa-info-circle"></i> You'll need to send the pre-filled message in WhatsApp
+                </p>
+            </div>
+        </div>
+    `;
+    
+    // Add modal to page
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+    
+    // Add close modal function to window
+    window.closeWhatsAppModal = function() {
+        const modal = document.getElementById('whatsappConfirmModal');
+        if (modal) {
+            modal.remove();
+        }
+    };
+    
+    // Close modal when clicking outside
+    document.getElementById('whatsappConfirmModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            window.closeWhatsAppModal();
+        }
+    });
+}
+
+// Alternative: Direct booking without modal (simpler version)
+function setupDirectWhatsAppBooking() {
+    // If you prefer direct redirect without confirmation modal, use this function
+    
+    const whatsappNumber = '2348060292694';
+    
+    // Service messages
+    const serviceMessages = {
+        'Basic Wash': `Hello SparkleClean! I would like to book the BASIC WASH service for ₦2,500 (per standard load). Please provide me with available pickup times and any additional details I need to know.`,
+        'Premium Bundle': `Hello SparkleClean! I would like to book the PREMIUM BUNDLE service for ₦4,500 (Wash + Dry Cleaning combo). I need priority service. Please let me know the next available pickup slot.`,
+        'Dry Cleaning': `Hello SparkleClean! I would like to book DRY CLEANING service at ₦1,500 per item. I have delicate fabrics that need professional care. Please send me instructions for preparing my items.`
+    };
+    
+    // Update all Book Now buttons
+    document.querySelectorAll('#pricing a[href="#booking"]').forEach(button => {
+        button.removeAttribute('href');
+        
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Get the service name from the card
+            const card = this.closest('div[style*="background-color: white"]');
+            const serviceName = card.querySelector('h3').textContent;
+            
+            // Get the message for this service
+            const message = serviceMessages[serviceName] || 
+                `Hello SparkleClean! I would like to book the ${serviceName} service. Please contact me with more information.`;
+            
+            // Encode and redirect
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            
+            // Open WhatsApp
+            window.open(whatsappURL, '_blank');
+        });
+        
+        // Update button appearance
+        button.innerHTML = '<i class="fab fa-whatsapp"></i> Book on WhatsApp';
+        button.style.backgroundColor = '#25D366';
+        button.style.display = 'inline-flex';
+        button.style.alignItems = 'center';
+        button.style.justifyContent = 'center';
+        button.style.gap = '8px';
+    });
+}
+
+// For a simpler implementation, just call this function instead:
+// setupDirectWhatsAppBooking();
+
+// CSS for WhatsApp buttons (add to your existing CSS)
+const whatsappStyles = `
+    #pricing a[href="#booking"] {
+        transition: all 0.3s ease !important;
+    }
+    
+    #pricing a[href="#booking"]:hover {
+        transform: translateY(-3px) !important;
+        box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3) !important;
+    }
+    
+    .whatsapp-button {
+        background-color: #25D366 !important;
+        color: white !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    .whatsapp-button:hover {
+        background-color: #128C7E !important;
+        transform: translateY(-3px) !important;
+        box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3) !important;
+    }
+`;
+
+// Add WhatsApp button styles to the page
+const styleSheet = document.createElement('style');
+styleSheet.textContent = whatsappStyles;
+document.head.appendChild(styleSheet);
+
+// Service data for WhatsApp messages
+const whatsappServiceData = [
+    {
+        name: 'Basic Wash',
+        price: '₦2,500',
+        message: `Hello SparkleClean! 
+
+I would like to book the *BASIC WASH* service for *₦2,500* (per standard load up to 6kg).
+
+*Service Includes:*
+• Wash, dry & fold
+• Eco-friendly detergents
+• Free pickup
+
+Please let me know:
+1. Available pickup times
+2. Any preparation needed
+3. Payment options
+
+Thank you!`
+    },
+    {
+        name: 'Premium Bundle',
+        price: '₦4,500',
+        message: `Hello SparkleClean! 
+
+I would like to book the *PREMIUM BUNDLE* service for *₦4,500* (Wash + Dry Cleaning combo).
+
+*Service Includes:*
+• Standard wash load
+• 2 dry cleaning items
+• Free ironing (5 items)
+• Priority service
+
+Please let me know:
+1. Available pickup times
+2. Any preparation needed
+3. Payment options
+
+Thank you!`
+    },
+    {
+        name: 'Dry Cleaning',
+        price: '₦1,500',
+        message: `Hello SparkleClean! 
+
+I would like to book *DRY CLEANING* service at *₦1,500* per delicate item.
+
+*Service Includes:*
+• Professional dry cleaning
+• Delicate fabric care
+• Stain removal
+• Professional folding/pressing
+
+Please let me know:
+1. Available pickup times
+2. Special instructions for delicate items
+3. Payment options
+
+Thank you!`
+    }
+];
     </script>
 </body>
 </html>
