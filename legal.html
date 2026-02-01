@@ -1,1 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CharlesGT Laundry Services | Policies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #2a9d8f;
+            --primary-dark: #21867a;
+            --secondary: #264653;
+            --accent: #e9c46a;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --dark: #343a40;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f5f7fa;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 22px;
+        }
+        
+        .logo-text h1 {
+            font-size: 26px;
+            color: var(--secondary);
+            line-height: 1;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo-text span {
+            color: var(--primary);
+            font-weight: 800;
+        }
+        
+        .logo-text p {
+            font-size: 12px;
+            color: var(--gray);
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 600;
+            padding: 10px 18px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+            background-color: rgba(42, 157, 143, 0.08);
+        }
+        
+        .nav-link.active {
+            color: var(--primary);
+            background-color: rgba(42, 157, 143, 0.1);
+        }
+        
+        .whatsapp-nav-btn {
+            background-color: #25D366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+        }
+        
+        .whatsapp-nav-btn:hover {
+            background-color: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            background-color: rgba(42, 157, 143, 0.1);
+            border: none;
+            cursor: pointer;
+            color: var(--primary);
+            font-size: 22px;
+        }
+        
+        /* Page Content Styles */
+        .page-header {
+            background: linear-gradient(rgba(42, 157, 143, 0.85), rgba(38, 70, 83, 0.9));
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .page-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .page-header p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .content-section {
+            background-color: white;
+            border-radius: 15px;
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin-bottom: 60px;
+        }
+        
+        .content-section h2 {
+            color: var(--secondary);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(42, 157, 143, 0.1);
+        }
+        
+        .content-section h3 {
+            color: var(--primary);
+            margin: 30px 0 15px;
+        }
+        
+        .content-section p {
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+        
+        .content-section ul, .content-section ol {
+            margin-left: 25px;
+            margin-bottom: 25px;
+            color: var(--gray);
+        }
+        
+        .content-section li {
+            margin-bottom: 10px;
+        }
+        
+        .info-box {
+            background-color: rgba(42, 157, 143, 0.05);
+            border-left: 4px solid var(--primary);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+        
+        .policy-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .policy-nav-btn {
+            padding: 12px 25px;
+            background-color: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .policy-nav-btn:hover, .policy-nav-btn.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 14px;
+        }
+        
+        /* Team Section for About Page */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .team-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            padding: 30px;
+            transition: transform 0.3s ease;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .team-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: rgba(42, 157, 143, 0.1);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 60px;
+        }
+        
+        .team-card h4 {
+            color: var(--secondary);
+            margin-bottom: 5px;
+        }
+        
+        .team-card p {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .nav-links, .whatsapp-nav-btn {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .page-header h1 {
+                font-size: 36px;
+            }
+            
+            .content-section {
+                padding: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 60px 0;
+            }
+            
+            .page-header h1 {
+                font-size: 32px;
+            }
+            
+            .page-header p {
+                font-size: 18px;
+            }
+            
+            .content-section {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-soap"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Charles<span>GT</span></h1>
+                        <p>LAUNDRY SERVICES</p>
+                    </div>
+                </a>
+                
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="index.html#services" class="nav-link">Services</a>
+                    <a href="index.html#pricing" class="nav-link">Pricing</a>
+                    <a href="index.html#booking" class="nav-link">Booking</a>
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                    <a href="about.html" class="nav-link active">About</a>
+                    <a href="https://wa.me/2348060292694?text=Hello%20CharlesGT%21%20I%20saw%20your%20website%20and%20would%20like%20to%20inquire%20about%20your%20services." 
+                       class="whatsapp-nav-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Chat Now</span>
+                    </a>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
 
+    <!-- Page Selection Navigation -->
+    <div class="container">
+        <div class="policy-nav">
+            <a href="#privacy" class="policy-nav-btn active">Privacy Policy</a>
+            <a href="#terms" class="policy-nav-btn">Terms of Use</a>
+            <a href="#cookies" class="policy-nav-btn">Cookies Policy</a>
+            <a href="#about" class="policy-nav-btn">About Us</a>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Page -->
+    <section id="privacy" class="page-content">
+        <div class="page-header">
+            <div class="container">
+                <h1>Privacy Policy</h1>
+                <p>Your privacy is important to us. Learn how we collect, use, and protect your personal information.</p>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="content-section">
+                <p><strong>Last Updated:</strong> January 28, 2024</p>
+                
+                <h2>1. Introduction</h2>
+                <p>Welcome to CharlesGT Laundry Services ("we," "our," or "us"). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about this privacy notice or our practices with regard to your personal information, please contact us at privacy@sparkleclean.com.</p>
+                
+                <div class="info-box">
+                    <p><strong>In Short:</strong> We collect personal information that you provide to us when you book our services, visit our website, or contact us. We use this information to provide and improve our services, communicate with you, and for legal compliance.</p>
+                </div>
+                
+                <h2>2. Information We Collect</h2>
+                
+                <h3>Personal Information You Disclose to Us</h3>
+                <p>We collect personal information that you voluntarily provide to us when you:</p>
+                <ul>
+                    <li>Book our laundry services through our website or WhatsApp</li>
+                    <li>Contact us via phone, email, or social media</li>
+                    <li>Sign up for our newsletter or promotional offers</li>
+                    <li>Participate in surveys or provide feedback</li>
+                </ul>
+                
+                <p>The personal information we collect may include:</p>
+                <ul>
+                    <li><strong>Contact Data:</strong> Name, phone number, email address, and delivery address</li>
+                    <li><strong>Booking Data:</strong> Service preferences, pickup times, special instructions</li>
+                    <li><strong>Payment Data:</strong> Billing address and payment method details (processed securely by our payment partners)</li>
+                </ul>
+                
+                <h3>Information Automatically Collected</h3>
+                <p>When you visit our website, we automatically collect certain information about your device and browsing activities, including:</p>
+                <ul>
+                    <li>IP address and device characteristics</li>
+                    <li>Browser type and version</li>
+                    <li>Pages visited and time spent on our site</li>
+                    <li>Referring website addresses</li>
+                </ul>
+                
+                <h2>3. How We Use Your Information</h2>
+                <p>We use the information we collect for the following purposes:</p>
+                <ul>
+                    <li>To provide and manage our laundry services</li>
+                    <li>To process your bookings and payments</li>
+                    <li>To communicate with you about your orders</li>
+                    <li>To send you service updates and important notices</li>
+                    <li>To improve our website and services</li>
+                    <li>To prevent fraud and ensure security</li>
+                    <li>To comply with legal obligations</li>
+                </ul>
+                
+                <h2>4. Data Sharing and Disclosure</h2>
+                <p>We may share your information in the following situations:</p>
+                <ul>
+                    <li><strong>Service Providers:</strong> With third-party vendors who provide services on our behalf (e.g., payment processing, delivery services)</li>
+                    <li><strong>Legal Requirements:</strong> When required by law or to protect our rights</li>
+                    <li><strong>Business Transfers:</strong> In connection with a merger, acquisition, or sale of assets</li>
+                </ul>
+                
+                <h2>5. Data Security</h2>
+                <p>We implement appropriate technical and organizational security measures to protect your personal information. However, no electronic transmission over the Internet can be guaranteed to be 100% secure.</p>
+                
+                <h2>6. Your Privacy Rights</h2>
+                <p>Depending on your location, you may have the right to:</p>
+                <ul>
+                    <li>Access the personal information we hold about you</li>
+                    <li>Request correction of inaccurate information</li>
+                    <li>Request deletion of your personal information</li>
+                    <li>Object to processing of your personal information</li>
+                    <li>Request restriction of processing</li>
+                    <li>Request transfer of your data to another service</li>
+                </ul>
+                
+                <p>To exercise these rights, please contact us at privacy@sparkleclean.com.</p>
+                
+                <h2>7. Children's Privacy</h2>
+                <p>Our services are not directed to individuals under 18. We do not knowingly collect personal information from children under 18.</p>
+                
+                <h2>8. Changes to This Policy</h2>
+                <p>We may update this privacy policy from time to time. The updated version will be indicated by an updated "Last Updated" date at the top of this page.</p>
+                
+                <h2>9. Contact Us</h2>
+                <p>If you have questions or comments about this policy, you may contact us at:</p>
+                <p><strong>CharlesGT Laundry Services</strong><br>
+                Email: belijah821@gmail.com<br>
+                Phone: 0806 029 2694<br>
+                Address: Cross River State, Nigeria</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terms of Use Page (Initially Hidden) -->
+    <section id="terms" class="page-content" style="display: none;">
+        <div class="page-header">
+            <div class="container">
+                <h1>Terms of Use</h1>
+                <p>Please read these terms carefully before using our services.</p>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="content-section">
+                <p><strong>Last Updated:</strong> January 28, 2024</p>
+                
+                <h2>1. Acceptance of Terms</h2>
+                <p>By accessing and using CharlesGT Laundry Services ("our services"), you accept and agree to be bound by these Terms of Use. If you do not agree to these terms, please do not use our services.</p>
+                
+                <h2>2. Service Description</h2>
+                <p>CharlesGT provides professional laundry, dry cleaning, and ironing services with pickup and delivery options. We strive to provide high-quality services but make no guarantees regarding specific outcomes.</p>
+                
+                <h2>3. Booking and Payment</h2>
+                
+                <h3>3.1 Booking Process</h3>
+                <ul>
+                    <li>Bookings can be made via our website, WhatsApp, or phone</li>
+                    <li>All bookings are subject to availability</li>
+                    <li>We reserve the right to refuse service at our discretion</li>
+                </ul>
+                
+                <h3>3.2 Pricing and Payments</h3>
+                <ul>
+                    <li>Prices are as displayed on our website or as quoted at time of booking</li>
+                    <li>Prices may change without notice</li>
+                    <li>Payment is due upon pickup or delivery as specified</li>
+                    <li>We accept cash, bank transfers, and selected digital payment methods</li>
+                </ul>
+                
+                <h3>3.3 Cancellation Policy</h3>
+                <ul>
+                    <li>Cancellations made 24 hours before scheduled pickup: No charge</li>
+                    <li>Cancellations made less than 24 hours before pickup: 50% of service charge</li>
+                    <li>Same-day cancellations: Full service charge applies</li>
+                </ul>
+                
+                <h2>4. Customer Responsibilities</h2>
+                <p>You agree to:</p>
+                <ul>
+                    <li>Provide accurate and complete information when booking</li>
+                    <li>Be available at the scheduled pickup time</li>
+                    <li>Prepare laundry according to our instructions</li>
+                    <li>Disclose any special requirements or fabric sensitivities</li>
+                    <li>Make payment as agreed</li>
+                </ul>
+                
+                <h2>5. Limitations of Liability</h2>
+                
+                <h3>5.1 General Limitation</h3>
+                <p>To the maximum extent permitted by law, SparkleClean shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our services.</p>
+                
+                <h3>5.2 Damage or Loss</h3>
+                <p>We exercise utmost care in handling your items. However, in the event of damage or loss:</p>
+                <ul>
+                    <li>Maximum liability is limited to 10 times the service charge for the affected items</li>
+                    <li>We are not liable for damage resulting from pre-existing conditions</li>
+                    <li>Claims must be made within 24 hours of delivery</li>
+                </ul>
+                
+                <h3>5.3 Special Items</h3>
+                <p>We are not liable for damage to:</p>
+                <ul>
+                    <li>Items not intended for standard laundry processes</li>
+                    <li>Items with sentimental or high intrinsic value</li>
+                    <li>Items not disclosed as requiring special handling</li>
+                </ul>
+                
+                <h2>6. Intellectual Property</h2>
+                <p>All content on our website, including text, graphics, logos, and images, is our property or the property of our licensors and is protected by copyright laws.</p>
+                
+                <h2>7. User Conduct</h2>
+                <p>You agree not to:</p>
+                <ul>
+                    <li>Use our services for any unlawful purpose</li>
+                    <li>Submit false or misleading information</li>
+                    <li>Interfere with the operation of our website or services</li>
+                    <li>Attempt to gain unauthorized access to our systems</li>
+                </ul>
+                
+                <h2>8. Amendments</h2>
+                <p>We may modify these terms at any time. Continued use of our services after changes constitutes acceptance of the modified terms.</p>
+                
+                <h2>9. Governing Law</h2>
+                <p>These terms are governed by the laws of Nigeria. Any disputes shall be subject to the exclusive jurisdiction of the courts of Lagos, Nigeria.</p>
+                
+                <h2>10. Contact Information</h2>
+                <p>For questions about these terms, contact us at:</p>
+                <p><strong>CharlesGT Laundry Services</strong><br>
+                Email: belijah821@gmail.com<br>
+                Phone: 0806 029 2694</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cookies Policy Page (Initially Hidden) -->
+    <section id="cookies" class="page-content" style="display: none;">
+        <div class="page-header">
+            <div class="container">
+                <h1>Cookies Policy</h1>
+                <p>Learn how we use cookies and similar technologies on our website.</p>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="content-section">
+                <p><strong>Last Updated:</strong> January 28, 2024</p>
+                
+                <h2>1. What Are Cookies?</h2>
+                <p>Cookies are small text files that are placed on your device when you visit our website. They help the website remember information about your visit, which can make it easier to visit the site again and make the site more useful to you.</p>
+                
+                <div class="info-box">
+                    <p><strong>In Short:</strong> We use cookies to improve your browsing experience, analyze website traffic, and personalize content. By using our website, you consent to our use of cookies as described in this policy.</p>
+                </div>
+                
+                <h2>2. Types of Cookies We Use</h2>
+                
+                <h3>2.1 Essential Cookies</h3>
+                <p>These cookies are necessary for the website to function and cannot be switched off in our systems. They are usually only set in response to actions made by you, such as setting your privacy preferences or filling in forms.</p>
+                <ul>
+                    <li><strong>Purpose:</strong> Website functionality, security, and user session management</li>
+                    <li><strong>Examples:</strong> Login status, shopping cart, form data</li>
+                </ul>
+                
+                <h3>2.2 Performance Cookies</h3>
+                <p>These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site. They help us know which pages are the most and least popular and see how visitors move around the site.</p>
+                <ul>
+                    <li><strong>Purpose:</strong> Analytics and website performance optimization</li>
+                    <li><strong>Examples:</strong> Google Analytics, page view tracking, bounce rates</li>
+                </ul>
+                
+                <h3>2.3 Functionality Cookies</h3>
+                <p>These cookies enable the website to provide enhanced functionality and personalization. They may be set by us or by third-party providers whose services we have added to our pages.</p>
+                <ul>
+                    <li><strong>Purpose:</strong> Remembering user preferences and settings</li>
+                    <li><strong>Examples:</strong> Language preferences, region settings, layout preferences</li>
+                </ul>
+                
+                <h3>2.4 Targeting/Advertising Cookies</h3>
+                <p>These cookies may be set through our site by our advertising partners. They may be used by those companies to build a profile of your interests and show you relevant advertisements on other sites.</p>
+                <ul>
+                    <li><strong>Purpose:</strong> Marketing and advertising optimization</li>
+                    <li><strong>Examples:</strong> Retargeting cookies, social media pixels</li>
+                </ul>
+                
+                <h2>3. Third-Party Cookies</h2>
+                <p>We may use services from third parties that set their own cookies on your device. These include:</p>
+                <ul>
+                    <li><strong>Analytics Services:</strong> Google Analytics to understand how users interact with our site</li>
+                    <li><strong>Social Media:</strong> Facebook, Instagram, or Twitter for social sharing features</li>
+                    <li><strong>Payment Processors:</strong> Cookies from payment service providers</li>
+                </ul>
+                
+                <h2>4. How to Control Cookies</h2>
+                
+                <h3>4.1 Browser Controls</h3>
+                <p>Most web browsers allow you to control cookies through their settings preferences. However, limiting cookies may affect your ability to use certain features of our website.</p>
+                <p>To manage cookies in your browser:</p>
+                <ul>
+                    <li><strong>Chrome:</strong> Settings → Privacy and Security → Cookies and other site data</li>
+                    <li><strong>Firefox:</strong> Options → Privacy & Security → Cookies and Site Data</li>
+                    <li><strong>Safari:</strong> Preferences → Privacy → Cookies and website data</li>
+                    <li><strong>Edge:</strong> Settings → Cookies and site permissions → Cookies and data stored</li>
+                </ul>
+                
+                <h3>4.2 Opt-Out Tools</h3>
+                <p>For third-party advertising cookies, you can opt out through:</p>
+                <ul>
+                    <li>Digital Advertising Alliance (DAA) opt-out: <a href="http://optout.aboutads.info" target="_blank">optout.aboutads.info</a></li>
+                    <li>Network Advertising Initiative (NAI) opt-out: <a href="http://optout.networkadvertising.org" target="_blank">optout.networkadvertising.org</a></li>
+                </ul>
+                
+                <h2>5. Cookie Duration</h2>
+                <p>Cookies have different lifespans:</p>
+                <ul>
+                    <li><strong>Session Cookies:</strong> Temporary cookies that expire when you close your browser</li>
+                    <li><strong>Persistent Cookies:</strong> Remain on your device for a set period or until deleted</li>
+                </ul>
+                
+                <h2>6. Do Not Track Signals</h2>
+                <p>Our website does not currently respond to Do Not Track (DNT) signals from browsers. However, you can control cookie usage through your browser settings as described above.</p>
+                
+                <h2>7. Updates to This Policy</h2>
+                <p>We may update this Cookies Policy from time to time. We will notify you of any changes by posting the new policy on this page with an updated "Last Updated" date.</p>
+                
+                <h2>8. Contact Us</h2>
+                <p>If you have questions about our use of cookies, please contact us at:</p>
+                <p><strong>CharlesGT Laundry Services</strong><br>
+                Email: belijah821@gmail.com<br>
+                Phone: 0806 029 2694</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Page (Initially Hidden) -->
+    <section id="about" class="page-content" style="display: none;">
+        <div class="page-header">
+            <div class="container">
+                <h1>About CharlesGT Laundry Services</h1>
+                <p>Transforming laundry from a chore into a seamless, professional service.</p>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="content-section">
+                <h2>Our Story</h2>
+                <p>Founded in 2020, SparkleClean began with a simple mission: to provide busy professionals and families in Lagos with reliable, high-quality laundry services that save time and deliver exceptional results. What started as a small neighborhood service has grown into a trusted laundry partner for hundreds of satisfied customers across the city.</p>
+                
+                <p>Our founder, Adeola Johnson, recognized the need for a laundry service that combined professional expertise with convenience. After years of watching friends and family struggle to balance work, family, and household chores, she created SparkleClean to offer a solution that delivers pristine laundry right to your doorstep.</p>
+                
+                <div class="info-box">
+                    <p><strong>Our Vision:</strong> To be Nigeria's most trusted and innovative laundry service, making clean clothes accessible to everyone while setting new standards in customer care and environmental responsibility.</p>
+                </div>
+                
+                <h2>Our Mission</h2>
+                <p>We exist to simplify your life by taking laundry off your to-do list. Through professional expertise, eco-friendly practices, and exceptional customer service, we deliver clean, fresh clothes that give you confidence and save you valuable time.</p>
+                
+                <h2>Our Values</h2>
+                
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-img">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>Quality Excellence</h4>
+                        <p>Every Garment Matters</p>
+                        <p>We treat every item with the care it deserves, using premium detergents and following strict quality control processes.</p>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-img">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h4>Eco-Friendly</h4>
+                        <p>Sustainable Practices</p>
+                        <p>We use biodegradable detergents, energy-efficient equipment, and water-saving techniques to minimize our environmental impact.</p>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-img">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h4>Customer Trust</h4>
+                        <p>Built on Reliability</p>
+                        <p>We build lasting relationships through consistent service, transparent pricing, and open communication with every customer.</p>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-img">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h4>Innovation</h4>
+                        <p>Always Improving</p>
+                        <p>We continuously invest in new technologies and processes to deliver better, faster, and more convenient laundry solutions.</p>
+                    </div>
+                </div>
+                
+                <h2>Why Choose CharlesGT?</h2>
+                
+                <h3>Professional Expertise</h3>
+                <p>Our team consists of trained laundry specialists who understand different fabric types and treatment requirements. We handle everything from everyday wear to delicate items requiring special care.</p>
+                
+                <h3>Convenience Redefined</h3>
+                <p>With our free pickup and delivery service, you never have to leave your home or office. Schedule pickups at your convenience through our website or WhatsApp booking system.</p>
+                
+                <h3>Quality Assurance</h3>
+                <p>Every item undergoes a 5-point quality check:</p>
+                <ol>
+                    <li>Pre-treatment inspection</li>
+                    <li>Appropriate cleaning method selection</li>
+                    <li>Quality control during processing</li>
+                    <li>Post-cleaning inspection</li>
+                    <li>Professional folding/packing</li>
+                </ol>
+                
+                <h3>Eco-Conscious Service</h3>
+                <p>We're committed to sustainability through:</p>
+                <ul>
+                    <li>Biodegradable, phosphate-free detergents</li>
+                    <li>Energy-efficient washing and drying equipment</li>
+                    <li>Water recycling systems where possible</li>
+                    <li>Eco-friendly packaging materials</li>
+                </ul>
+                
+                <h2>Our Team</h2>
+                <p>Behind every clean garment is a team of dedicated professionals committed to excellence:</p>
+                
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-img">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h4>Adeola Johnson</h4>
+                        <p>Founder & CEO</p>
+                        <p>15+ years in textile care and customer service</p>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-img">
+                            <i class="fas fa-user-cog"></i>
+                        </div>
+                        <h4>Chinedu Okoro</h4>
+                        <p>Operations Manager</p>
+                        <p>Specialist in laundry processes and quality control</p>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-img">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h4>Fatima Bello</h4>
+                        <p>Customer Care Lead</p>
+                        <p>Ensuring every customer has an exceptional experience</p>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-img">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h4>Emeka Nwosu</h4>
+                        <p>Logistics Coordinator</p>
+                        <p>Managing our efficient pickup and delivery network</p>
+                    </div>
+                </div>
+                
+                <h2>Community Commitment</h2>
+                <p>We believe in giving back to the communities we serve. Through our "Clean Clothes for All" initiative, we provide free laundry services to orphanages, shelters, and low-income families in Lagos.</p>
+                
+                <h2>Contact Us</h2>
+                <p>Ready to experience the SparkleClean difference? Get in touch with us today:</p>
+                <p><strong>Phone:</strong> 0806 029 2694<br>
+                <strong>Email:</strong> hello@sparkleclean.com<br>
+                <strong>WhatsApp:</strong> <a href="https://wa.me/2348060292694" target="_blank">Click to Chat</a><br>
+                <strong>Operating Hours:</strong> Monday-Saturday: 8am-8pm, Sunday: 10am-4pm</p>
+                
+                <div class="info-box">
+                    <p><strong>Join Our Growing Family:</strong> We're proud to have served over 5,000 customers and cleaned more than 50,000 kg of laundry since our founding. Become part of our story today!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CharlesGT</h3>
+                    <p>Professional laundry and dry cleaning services with free pickup and delivery. Making your life cleaner and easier.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#pricing">Pricing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Use</a></li>
+                        <li><a href="#cookies">Cookies Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-phone"></i> 0806 029 2694</li>
+                        <li><i class="fas fa-envelope"></i> belijah821@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Cross River State, Nigeria</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 SparkleClean Laundry Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Page Navigation Script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all navigation buttons
+            const navButtons = document.querySelectorAll('.policy-nav-btn');
+            const pages = document.querySelectorAll('.page-content');
+            
+            // Function to show a specific page
+            function showPage(pageId) {
+                // Hide all pages
+                pages.forEach(page => {
+                    page.style.display = 'none';
+                });
+                
+                // Show selected page
+                const selectedPage = document.getElementById(pageId);
+                if (selectedPage) {
+                    selectedPage.style.display = 'block';
+                    
+                    // Scroll to top of the page
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                }
+                
+                // Update active button
+                navButtons.forEach(button => {
+                    button.classList.remove('active');
+                    if (button.getAttribute('href') === `#${pageId}`) {
+                        button.classList.add('active');
+                    }
+                });
+            }
+            
+            // Add click event listeners to navigation buttons
+            navButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('href').substring(1);
+                    showPage(pageId);
+                    
+                    // Update URL without reloading page
+                    history.pushState(null, null, `#${pageId}`);
+                });
+            });
+            
+            // Check URL hash on page load
+            const hash = window.location.hash.substring(1);
+            if (hash && ['privacy', 'terms', 'cookies', 'about'].includes(hash)) {
+                showPage(hash);
+            } else {
+                // Default to Privacy Policy
+                showPage('privacy');
+            }
+            
+            // Handle browser back/forward buttons
+            window.addEventListener('popstate', function() {
+                const hash = window.location.hash.substring(1);
+                if (hash && ['privacy', 'terms', 'cookies', 'about'].includes(hash)) {
+                    showPage(hash);
+                }
+            });
+            
+            // Mobile menu toggle (if needed)
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            if (mobileMenuBtn) {
+                // This is a simplified version - in a full site, you'd have a proper mobile menu
+                mobileMenuBtn.addEventListener('click', function() {
+                    alert('Mobile menu would open here. In a complete website, this would show navigation options.');
+                });
+            }
+            
+            // Update page titles based on current page
+            function updatePageTitle(pageId) {
+                const titles = {
+                    'privacy': 'Privacy Policy',
+                    'terms': 'Terms of Use', 
+                    'cookies': 'Cookies Policy',
+                    'about': 'About Us'
+                };
+                
+                if (titles[pageId]) {
+                    document.title = `SparkleClean | ${titles[pageId]}`;
+                }
+            }
+            
+            // Modify showPage function to update title
+            const originalShowPage = showPage;
+            showPage = function(pageId) {
+                originalShowPage(pageId);
+                updatePageTitle(pageId);
+            };
+            
+            // Initialize title
+            const initialPage = window.location.hash.substring(1) || 'privacy';
+            updatePageTitle(initialPage);
+        });
+        
+        // Print-friendly version button (optional feature)
+        function addPrintButton() {
+            const printBtn = document.createElement('button');
+            printBtn.innerHTML = '<i class="fas fa-print"></i> Print This Page';
+            printBtn.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background-color: var(--primary);
+                color: white;
+                padding: 10px 20px;
+                border-radius: 8px;
+                border: none;
+                cursor: pointer;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                z-index: 100;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            `;
+            
+            printBtn.addEventListener('click', function() {
+                window.print();
+            });
+            
+            document.body.appendChild(printBtn);
+        }
+        
+        // Uncomment to add print button
+        // addPrintButton();
+        
+        // Print styles
+        const printStyles = `
+            @media print {
+                header, footer, .policy-nav, .mobile-menu-btn, .whatsapp-nav-btn {
+                    display: none !important;
+                }
+                
+                .page-header {
+                    padding: 40px 0 !important;
+                    margin-bottom: 30px !important;
+                }
+                
+                .content-section {
+                    box-shadow: none !important;
+                    padding: 20px !important;
+                }
+                
+                .info-box {
+                    border: 1px solid #ccc !important;
+                    background-color: #f9f9f9 !important;
+                }
+                
+                a {
+                    color: #000 !important;
+                    text-decoration: none !important;
+                }
+                
+                .team-grid {
+                    page-break-inside: avoid;
+                }
+            }
+        `;
+        
+        const styleSheet = document.createElement('style');
+        styleSheet.textContent = printStyles;
+        document.head.appendChild(styleSheet);
+    </script>
+</body>
+</html>
