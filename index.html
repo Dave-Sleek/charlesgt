@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CharlesGT Laundry Services | Professional Laundry & Dry Cleaning</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -1157,9 +1157,9 @@ function setupDirectWhatsAppBooking() {
     
     // Service messages
     const serviceMessages = {
-        'Basic Wash': `Hello SparkleClean! I would like to book the BASIC WASH service for ₦2,500 (per standard load). Please provide me with available pickup times and any additional details I need to know.`,
-        'Premium Bundle': `Hello SparkleClean! I would like to book the PREMIUM BUNDLE service for ₦4,500 (Wash + Dry Cleaning combo). I need priority service. Please let me know the next available pickup slot.`,
-        'Dry Cleaning': `Hello SparkleClean! I would like to book DRY CLEANING service at ₦1,500 per item. I have delicate fabrics that need professional care. Please send me instructions for preparing my items.`
+        'Basic Wash': `Hello CharlesGT! I would like to book the BASIC WASH service for ₦2,500 (per standard load). Please provide me with available pickup times and any additional details I need to know.`,
+        'Premium Bundle': `Hello CharlesGT! I would like to book the PREMIUM BUNDLE service for ₦4,500 (Wash + Dry Cleaning combo). I need priority service. Please let me know the next available pickup slot.`,
+        'Dry Cleaning': `Hello CharlesGT! I would like to book DRY CLEANING service at ₦1,500 per item. I have delicate fabrics that need professional care. Please send me instructions for preparing my items.`
     };
     
     // Update all Book Now buttons
@@ -1175,7 +1175,7 @@ function setupDirectWhatsAppBooking() {
             
             // Get the message for this service
             const message = serviceMessages[serviceName] || 
-                `Hello SparkleClean! I would like to book the ${serviceName} service. Please contact me with more information.`;
+                `Hello CharlesGT! I would like to book the ${serviceName} service. Please contact me with more information.`;
             
             // Encode and redirect
             const encodedMessage = encodeURIComponent(message);
@@ -1236,7 +1236,7 @@ const whatsappServiceData = [
     {
         name: 'Basic Wash',
         price: '₦2,500',
-        message: `Hello SparkleClean! 
+        message: `Hello CharlesGT! 
 
 I would like to book the *BASIC WASH* service for *₦2,500* (per standard load up to 6kg).
 
@@ -1255,7 +1255,7 @@ Thank you!`
     {
         name: 'Premium Bundle',
         price: '₦4,500',
-        message: `Hello SparkleClean! 
+        message: `Hello CharlesGT! 
 
 I would like to book the *PREMIUM BUNDLE* service for *₦4,500* (Wash + Dry Cleaning combo).
 
@@ -1275,7 +1275,7 @@ Thank you!`
     {
         name: 'Dry Cleaning',
         price: '₦1,500',
-        message: `Hello SparkleClean! 
+        message: `Hello CharlesGT! 
 
 I would like to book *DRY CLEANING* service at *₦1,500* per delicate item.
 
